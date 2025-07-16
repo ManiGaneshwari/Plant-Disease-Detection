@@ -110,14 +110,9 @@ pip install -r requirements-versions.txt
 
 
 ### Model Setup
-Ensure the trained model file `CNN_plantdiseases_model.keras` is in your project directory. This model should be trained on the [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset).
+Ensure the trained model file `CNN_plantdiseases_model.keras` is in your project directory (The which is trained on the [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset).
 
-Update the model path in the main application file:
 
-```python
-model = tf.keras.models.load_model(r"./CNN_plantdiseases_model.keras")
-```
-**Note** : Ignore the above update , The code is updated recently.
 
 
 ## 🎯 How to navigate in the web app
