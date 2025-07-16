@@ -72,11 +72,7 @@ source plant_disease_env/bin/activate
 
 ### 3. Install Dependencies
 ```bash
-# Try with specific versions first
 pip install -r requirements.txt
-
-# If version conflicts occur, use:
-pip install -r requirements-no-versions.txt
 ```
 
 ### 4. Run the Application
@@ -91,23 +87,6 @@ Navigate to `http://localhost:8501` in your web browser.
 
 ### Dependencies
 
-#### Option 1: With Specific Versions (Recommended)
-Create a `requirements.txt` file with:
-
-```txt
-streamlit==1.28.0
-tensorflow==2.15.0
-pillow==10.0.0
-numpy==1.24.0
-pandas==2.0.0
-matplotlib==3.7.0
-opencv-python==4.8.0.74
-scikit-learn==1.3.0
-```
-
-#### Option 2: Without Versions (If Version Conflicts Occur)
-If you encounter version compatibility issues, create a `requirements-no-versions.txt` file with:
-
 ```txt
 streamlit
 tensorflow
@@ -121,14 +100,14 @@ scikit-learn
 
 Install dependencies:
 ```bash
-# Try with specific versions first
+# Try with without versions first
 pip install -r requirements.txt
 
-# If there are version conflicts, use:
-pip install -r requirements-no-versions.txt
+# If there are version conflicts, use the one with versions:
+pip install -r requirements-versions.txt
 ```
+**Note**: Use the requirements file without versions to install the latest compatible versions automatically.
 
-**Note**: If you encounter version-related errors with the specific versions, use the requirements file without versions to install the latest compatible versions automatically.
 
 ### Model Setup
 Ensure the trained model file `CNN_plantdiseases_model.keras` is in your project directory. This model should be trained on the [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset).
@@ -138,6 +117,7 @@ Update the model path in the main application file:
 ```python
 model = tf.keras.models.load_model(r"./CNN_plantdiseases_model.keras")
 ```
+**Note** : Ignore the above update , The code is updated recently.
 
 
 ## 🎯 How to navigate in the web app
