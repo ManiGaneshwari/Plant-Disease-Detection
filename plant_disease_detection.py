@@ -12,7 +12,8 @@ warnings.filterwarnings("ignore", message="Thread 'MainThread': missing ScriptRu
 # Load and preprocess the image
 def model_predict(image_path):
     # model = tf.keras.models.load_model(r"C:\Users\helpd\Downloads\CNN_plantdiseases_model.keras")
-    model = tf.keras.models.load_model("CNN_plantdiseases_model.keras")
+    model = tf.keras.models.load_model(r"./CNN_plantdiseases_model.keras")
+    
     img = cv2.imread(image_path)  # Read the file and convert into array
     H, W, C = 224, 224, 3
     img = cv2.resize(img, (H, W)) 
