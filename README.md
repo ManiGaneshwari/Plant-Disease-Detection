@@ -139,7 +139,6 @@ Update the model path in the main application file:
 model = tf.keras.models.load_model(r"./CNN_plantdiseases_model.keras")
 ```
 
-**Note**: The model file is not included in this repository due to size constraints. You need to train your own model using the provided dataset or obtain a pre-trained model.
 
 ## 🎯 How to navigate in the web app
 
