@@ -141,6 +141,25 @@ model = tf.keras.models.load_model(r"./CNN_plantdiseases_model.keras")
 
 **Note**: The model file is not included in this repository due to size constraints. You need to train your own model using the provided dataset or obtain a pre-trained model.
 
+## 🎯 How to navigate in the web app
+
+### Navigation
+The application features a sidebar with two main sections:
+1. **HOME** - Landing page with system information
+2. **DISEASE RECOGNITION** - Main prediction interface
+
+### Making Predictions
+
+1. **Select Disease Recognition** from the sidebar dropdown
+2. **Upload Plant Image** by clicking "Browse Files"
+3. **View Results** including disease classification and confidence score
+
+### Supported Image Formats
+- JPG/JPEG
+- PNG
+- Recommended size: < 10MB
+
+
 ## 🧠 Training Your Own Model
 
 If you don't have a pre-trained model, you can train one using Google Colab. Follow these steps:
@@ -227,23 +246,6 @@ files.download('CNN_plantdiseases_model.keras')
 
 **Training Time**: Approximately 2-4 hours depending on epochs and GPU allocation.
 
-## 🎯 How to navigate in the web app
-
-### Navigation
-The application features a sidebar with two main sections:
-1. **HOME** - Landing page with system information
-2. **DISEASE RECOGNITION** - Main prediction interface
-
-### Making Predictions
-
-1. **Select Disease Recognition** from the sidebar dropdown
-2. **Upload Plant Image** by clicking "Browse Files"
-3. **View Results** including disease classification and confidence score
-
-### Supported Image Formats
-- JPG/JPEG
-- PNG
-- Recommended size: < 10MB
 
 ## 🛠️ Troubleshooting
 
