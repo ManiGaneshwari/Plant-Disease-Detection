@@ -159,9 +159,8 @@ The application features a sidebar with two main sections:
 - Recommended size: < 10MB
 
 
-## 🧠 Training Your Own Model
+## 🧠Steps to follow if you want to train your own model in Google Colab
 
-If you don't have a pre-trained model, you can train one using Google Colab. Follow these steps:
 
 ### Step 1: Setup Google Colab Environment
 - Open [Google Colab](https://colab.research.google.com/)
@@ -310,17 +309,6 @@ streamlit run plant_disease_detection.py
 - **Output**: Disease classification with confidence scores
 - **Dataset**: [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset) from Kaggle
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🆘 Support
 
