@@ -5,7 +5,22 @@ A simple web application built with **Streamlit** that uses a trained **Convolut
 
 This system provides an intuitive web interface built with Streamlit for uploading plant images and receiving real-time disease predictions. The application uses a trained Convolutional Neural Network (CNN) model to classify plant diseases with confidence scores and recommendations.
 
+## 📚 Resources
+* [Dataset: New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset)
+* [Streamlit Documentation](https://docs.streamlit.io/)
+* [TensorFlow Documentation](https://www.tensorflow.org/)
+* [OpenCV Documentation](https://opencv.org/)
 
+* [Kaggle Platform](https://www.kaggle.com/)
+
+## 📈 Version Information
+
+* **Application Version**: 1.0.0
+* **Python Compatibility**: 3.7+
+* **TensorFlow Version**: 2.15+
+* **Streamlit Version**: 1.28+
+
+---
 
 ## ✨ Features
 
