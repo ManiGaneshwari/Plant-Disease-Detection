@@ -1,10 +1,20 @@
-# 🌿 Plant Disease Detection using CNN
+# Plant Disease Detection System
 
-A simple web application built with **Streamlit** that uses a trained **Convolutional Neural Network (CNN)** model to detect plant diseases from leaf images.
+A machine learning-powered web application for detecting plant diseases from leaf images using deep learning and computer vision.
+
 ## 🌱 Overview
 
 This system provides an intuitive web interface built with Streamlit for uploading plant images and receiving real-time disease predictions. The application uses a trained Convolutional Neural Network (CNN) model to classify plant diseases with confidence scores and recommendations.
 
+## ✨ Features
+
+- **Real-time Disease Detection**: Upload plant images and get instant predictions
+- **User-friendly Interface**: Simple web-based interface with responsive design
+- **High Accuracy**: CNN-based model trained on plant disease datasets
+- **Local Deployment**: Runs entirely on your local machine for data privacy
+- **Multiple Format Support**: Accepts JPG, JPEG, and PNG image formats
+- **Confidence Scoring**: Provides prediction confidence levels
+- **Mobile Responsive**: Works on desktop and mobile browsers
 ## 📚 Resources
 * [Dataset: New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset)
 * [Streamlit Documentation](https://docs.streamlit.io/)
@@ -12,45 +22,6 @@ This system provides an intuitive web interface built with Streamlit for uploadi
 * [OpenCV Documentation](https://opencv.org/)
 
 * [Kaggle Platform](https://www.kaggle.com/)
-
-## 📈 Version Information
-
-* **Application Version**: 1.0.0
-* **Python Compatibility**: 3.7+
-* **TensorFlow Version**: 2.15+
-* **Streamlit Version**: 1.28+
-
----
-
-## ✨ Features
-
-- **Image Upload**: Upload leaf images in common formats (JPG, PNG, JPEG)
-- **Disease Detection**: Automatically detect plant diseases using a trained CNN model
-- **Real-time Results**: Get instant predictions with confidence scores
-- **User-friendly Interface**: Clean and intuitive Streamlit web interface
-- **Cross-platform**: Works on Windows, macOS, and Linux
-
-## 🔧 Prerequisites
-
-Before running the application, ensure you have:
-
-- Python 3.7 or higher
-- pip package manager
-- A web browser
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🔧 System Requirements
 
 ### Software Prerequisites
@@ -160,13 +131,103 @@ pip install -r requirements-no-versions.txt
 **Note**: If you encounter version-related errors with the specific versions, use the requirements file without versions to install the latest compatible versions automatically.
 
 ### Model Setup
-Ensure the trained model file `CNN_plantdiseases_model.keras` is in your project directory. Update the model path in the main application file:
+Ensure the trained model file `CNN_plantdiseases_model.keras` is in your project directory. This model should be trained on the [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset).
+
+Update the model path in the main application file:
 
 ```python
 model = tf.keras.models.load_model(r"./CNN_plantdiseases_model.keras")
 ```
 
-## 🎯 Usage
+**Note**: The model file is not included in this repository due to size constraints. You need to train your own model using the provided dataset or obtain a pre-trained model.
+
+## 🧠 Training Your Own Model
+
+If you don't have a pre-trained model, you can train one using Google Colab. Follow these steps:
+
+### Step 1: Setup Google Colab Environment
+- Open [Google Colab](https://colab.research.google.com/)
+- Upload the notebook `plantdisease.ipynb` to Google Drive
+- Right-click → "Open With" → "Google Colab"
+
+### Step 2 : Mount Google Drive
+The first cell in the notebook runs:
+
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+🔑 This step allows access to your Drive files.
+
+
+
+### Step 2: Install Required Libraries
+```python
+# Install required libraries
+!pip install tensorflow==2.15.0
+!pip install opencv-python
+!pip install matplotlib
+!pip install seaborn
+!pip install scikit-learn
+!pip install pillow
+
+
+```
+
+### Step 3: Extract Dataset from Drive
+Make sure your dataset ZIP (archive (2).zip) is in your Google Drive (MyDrive). The notebook will automatically extract it:
+
+```python
+zip_file_path = "/content/drive/MyDrive/archive (2).zip"
+extract_dir = "/content"
+
+# Extract ZIP contents to /content
+
+```
+
+
+
+### Step 4: Data Preprocessing
+The dataset is automatically unzipped and organized. The notebook includes image augmentation, resizing, and generator setup:
+```python
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+```
+Target size: (224, 224)
+
+Batch size: 32
+
+Classes are inferred automatically
+
+### Step 5: Build and Train CNN Model
+The model is based on MobileNet, using transfer learning with custom dense layers:
+```python
+from tensorflow.keras.applications import MobileNet
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten, GlobalAveragePooling2D, Dropout
+
+
+```
+
+### Step 6: Save and Download Model
+```python
+# Save the final model
+model.save('CNN_plantdiseases_model.keras')
+
+# Download the trained model
+from google.colab import files
+files.download('CNN_plantdiseases_model.keras')
+```
+
+### Step 7: Use the Downloaded Model
+1. Download the `CNN_plantdiseases_model.keras` file to your local machine
+2. Place it in your project directory
+3. Run the Streamlit application as described in the Quick Start section
+
+**Training Time**: Approximately 2-4 hours depending on epochs and GPU allocation.
+
+## 🎯 How to navigate in the web app
 
 ### Navigation
 The application features a sidebar with two main sections:
@@ -215,8 +276,11 @@ streamlit run plant_disease_detection.py --server.port 8502
 - Check file size (< 10MB recommended)
 - Verify image isn't corrupted
 
+## 🔒 Security & Privacy
 
-
+- **Local Processing**: All images processed locally, not sent to external servers
+- **No Data Storage**: User uploads are temporary and not permanently stored
+- **File Validation**: Automatic validation of file types and sizes
 
 
 
@@ -243,6 +307,7 @@ streamlit run plant_disease_detection.py
 - **Framework**: TensorFlow/Keras
 - **Input**: RGB images of plant leaves
 - **Output**: Disease classification with confidence scores
+- **Dataset**: [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset) from Kaggle
 
 ## 🤝 Contributing
 
@@ -263,11 +328,7 @@ For issues and questions:
 - Review common issues and solutions
 - Contact the development team
 
-## 📚 Resources
 
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [TensorFlow Documentation](https://www.tensorflow.org/)
-- [OpenCV Documentation](https://opencv.org/)
 
 ## 📈 Version Information
 
